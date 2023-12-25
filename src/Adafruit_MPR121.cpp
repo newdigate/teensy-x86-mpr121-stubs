@@ -33,7 +33,9 @@
 /*!
  *  @brief      Default constructor
  */
-Adafruit_MPR121::Adafruit_MPR121() {}
+Adafruit_MPR121::Adafruit_MPR121() {
+    _touchedValue = 0;
+}
 
 /*!
  *  @brief    Begin an MPR121 object on a given I2C bus. This function resets
@@ -118,7 +120,7 @@ uint16_t Adafruit_MPR121::baselineData(uint8_t t) {
  * device is currently deemed to be touched.
  */
 uint16_t Adafruit_MPR121::touched(void) {
-  return 0;
+  return _touchedValue;
 }
 
 /*!

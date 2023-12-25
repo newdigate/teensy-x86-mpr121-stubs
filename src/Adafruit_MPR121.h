@@ -101,7 +101,13 @@ public:
       __attribute__((deprecated));
   void setThresholds(uint8_t touch, uint8_t release);
 
+  // non Arduino api below
+  void setTouched(int key, bool value){
+      _touchedValue = bitWrite(_touchedValue, key, value);
+  }
+
 private:
+    uint16_t _touchedValue;
 };
 
 #endif
